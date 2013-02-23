@@ -1,0 +1,43 @@
+{
+    "type": "datamodel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Crime"
+    },
+    "id": "ExtBox1-ext-gen9315",
+    "designerId": "7340516b-d600-4f42-8242-5561af15b9ac",
+    "cn": [
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field",
+                "name": "attributes",
+                "allowNull": false
+            },
+            "designerId": "c614af84-18cb-48e7-9b3e-0ed656c6f6b3"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field",
+                "name": "geometry",
+                "allowNull": false
+            },
+            "designerId": "9edf08ed-c3a7-4355-90dc-eb40a9d3b47b"
+        }
+    ]
+}

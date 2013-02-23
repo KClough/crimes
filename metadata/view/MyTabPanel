@@ -1,0 +1,134 @@
+{
+    "type": "tabpanel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyTabPanel",
+        "docked": null
+    },
+    "id": "ExtBox1-ext-gen2081",
+    "designerId": "bec0c5b6-650c-4d29-8c06-de431f70e8a4",
+    "cn": [
+        {
+            "type": "tabbar",
+            "reference": {
+                "name": "tabBar",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyTabBar",
+                "docked": "bottom"
+            },
+            "designerId": "d86f4f9e-1759-4973-94a3-472e9a504350"
+        },
+        {
+            "type": "navigationview",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Crimes!",
+                "iconCls": "delete",
+                "designer|userClassName": "MyNavigationView",
+                "itemId": "mainNav"
+            },
+            "designerId": "d73da2f2-fa6d-4b35-b373-5fb9a63c76e2",
+            "cn": [
+                {
+                    "type": "formpanel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyFormPanel"
+                    },
+                    "designerId": "cc91b440-7530-439e-b207-0c16ee1688df",
+                    "cn": [
+                        {
+                            "type": "fieldset",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "MyFieldSet",
+                                "title": "MyFieldSet"
+                            },
+                            "designerId": "713649ec-9a12-4a8d-8362-985b7773100f",
+                            "cn": [
+                                {
+                                    "type": "textfield",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|userClassName": "MyTextField",
+                                        "label": "Lat"
+                                    },
+                                    "designerId": "d64078e2-7f32-47d0-9f1b-9fe27ab42d22"
+                                },
+                                {
+                                    "type": "textfield",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|userClassName": "MyTextField1",
+                                        "label": "Lon"
+                                    },
+                                    "designerId": "7de6b821-7dd1-4a8b-8a92-949ab03fe63d"
+                                },
+                                {
+                                    "type": "button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|userClassName": "MyButton",
+                                        "itemId": "listCrimesButton",
+                                        "text": "List"
+                                    },
+                                    "designerId": "23ba3b96-b498-49de-aacb-d52b916c564e",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|userClassName": "onMybuttonTap",
+                                                "fn": "onMybuttonTap",
+                                                "implHandler": [
+                                                    ""
+                                                ],
+                                                "name": "tap"
+                                            },
+                                            "designerId": "a097c984-25e8-400b-80d6-7e5101401c1e"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

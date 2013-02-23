@@ -1,0 +1,93 @@
+{
+    "name": "crimes",
+    "settings": {
+        "urlPrefix": "",
+        "spacesToIndent": 4,
+        "exportPath": "",
+        "sdkPath": "",
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false
+    },
+    "xdsVersion": "2.1.0",
+    "xdsBuild": 678,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000498,
+    "framework": "touch21",
+    "topInstanceFileMap": {
+        "bec0c5b6-650c-4d29-8c06-de431f70e8a4": {
+            "paths": [
+                "metadata/view/MyTabPanel",
+                "app/view/override/MyTabPanel.js",
+                "app/view/MyTabPanel.js"
+            ],
+            "className": "MyTabPanel"
+        },
+        "0681c412-8b26-4338-861e-d0bfb7707432": {
+            "paths": [
+                "metadata/store/CrimeStore",
+                "app/store/override/CrimeStore.js",
+                "app/store/CrimeStore.js"
+            ],
+            "className": "CrimeStore"
+        },
+        "7340516b-d600-4f42-8242-5561af15b9ac": {
+            "paths": [
+                "metadata/model/Crime",
+                "app/model/override/Crime.js",
+                "app/model/Crime.js"
+            ],
+            "className": "Crime"
+        },
+        "4830a858-d8eb-40c5-907b-3b2ed3b592e3": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "9d8b36fe-5f06-40c2-bb4b-3f085d1b5df6": {
+            "paths": [
+                "metadata/view/CrimeTabPanel",
+                "app/view/override/CrimeTabPanel.js",
+                "app/view/CrimeTabPanel.js"
+            ],
+            "className": "CrimeTabPanel"
+        },
+        "0349fc59-e064-4c9e-bc78-84f9624705c5": {
+            "paths": [
+                "metadata/controller/CrimeController",
+                "app/controller/override/CrimeController.js",
+                "app/controller/CrimeController.js"
+            ],
+            "className": "CrimeController"
+        },
+        "08da2572-abe5-4e65-bca5-62569cc101d1": {
+            "paths": [
+                "metadata/resource/GoogleMapsAPI"
+            ],
+            "className": "GoogleMapsAPI"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "bec0c5b6-650c-4d29-8c06-de431f70e8a4",
+            "9d8b36fe-5f06-40c2-bb4b-3f085d1b5df6"
+        ],
+        "store": [
+            "0681c412-8b26-4338-861e-d0bfb7707432"
+        ],
+        "controller": [
+            "0349fc59-e064-4c9e-bc78-84f9624705c5"
+        ],
+        "model": [
+            "7340516b-d600-4f42-8242-5561af15b9ac"
+        ],
+        "resource": [
+            "4830a858-d8eb-40c5-907b-3b2ed3b592e3",
+            "08da2572-abe5-4e65-bca5-62569cc101d1"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

@@ -1,0 +1,109 @@
+{
+    "type": "tabpanel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CrimeTabPanel",
+        "designer|initialView": true,
+        "itemId": "CrimeTabPanel"
+    },
+    "id": "ExtBox1-ext-gen10466",
+    "designerId": "9d8b36fe-5f06-40c2-bb4b-3f085d1b5df6",
+    "cn": [
+        {
+            "type": "tabbar",
+            "reference": {
+                "name": "tabBar",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "center",
+                "designer|userClassName": "MyTabBar1",
+                "docked": "top"
+            },
+            "designerId": "49a6d72f-6e60-4989-91ec-e9f108dcb6c1"
+        },
+        {
+            "type": "container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Map",
+                "designer|userClassName": "MyContainer2"
+            },
+            "designerId": "081e3911-03af-4940-9690-84ff07e08b0d",
+            "cn": [
+                {
+                    "type": "map",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyMap",
+                        "height": "100%",
+                        "itemId": "map",
+                        "useCurrentLocation": true
+                    },
+                    "designerId": "084ac264-36e3-46c3-8335-3c09fbcaeb93",
+                    "cn": [
+                        {
+                            "type": "button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "MyButton1",
+                                "docked": "bottom",
+                                "itemId": "updateMapButton",
+                                "text": "Update"
+                            },
+                            "designerId": "f2b1cadc-24e5-4486-97dd-b28251985929"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "list",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "List",
+                "designer|userClassName": "MyList"
+            },
+            "designerId": "701555ca-e8b3-487b-b65c-c729daea7ae7",
+            "cn": [
+                {
+                    "type": "template",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "itemTpl",
+                        "implHandler": [
+                            "<div>List Item {string}</div>"
+                        ],
+                        "designer|displayName": "itemTpl"
+                    },
+                    "designerId": "6e51bebc-d52a-4567-83d0-b50811276fe5"
+                }
+            ]
+        }
+    ]
+}

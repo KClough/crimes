@@ -1,0 +1,305 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CrimeController"
+    },
+    "id": "ExtBox1-ext-gen15223",
+    "designerId": "0349fc59-e064-4c9e-bc78-84f9624705c5",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MainNav",
+                "ref": "MainNav",
+                "selector": "#mainNav"
+            },
+            "designerId": "80c9a38e-1dd8-409f-aa26-70f487b9b35c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onButtonTap",
+                "fn": "onButtonTap",
+                "implHandler": [
+                    "var navView = this.getMainNav();",
+                    "var crimeTabPanel = Ext.create('MyApp.view.CrimeTabPanel', {title: 'Crimes!'});",
+                    "navView.push(crimeTabPanel);"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#mainNav #listCrimesButton"
+            },
+            "designerId": "c98bef3e-e404-44b7-8c09-011afe7e83f1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "UpdateCrimes",
+                "fn": "UpdateCrimes",
+                "implHandler": [
+                    "var map = this.getMap();",
+                    "var lat = map.getMap().getCenter().lat();",
+                    "var lon = map.getMap().getCenter().lng();",
+                    "",
+                    "console.log('Location: \"x\":' + lon + ',\"y\":' + lat);",
+                    "console.log(\"ZOOM: \" + map.getMap().getZoom());",
+                    "",
+                    "this.getBuffer(lat, lon);"
+                ]
+            },
+            "designerId": "b8a5ec84-d47c-4fd6-b01c-d98812d6c500"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "Map",
+                "ref": "Map",
+                "selector": "#map"
+            },
+            "designerId": "baa61640-9356-4d82-be1d-2e9109998a52"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onUpdateMapButtonTap",
+                "fn": "onUpdateMapButtonTap",
+                "implHandler": [
+                    "this.UpdateCrimes();"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#map #updateMapButton"
+            },
+            "designerId": "312915f7-6689-463f-bef2-cb34cb216ccf"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onMapMaprender",
+                "fn": "onMapMaprender",
+                "implHandler": [
+                    "map.setUseCurrentLocation(false);",
+                    "this.UpdateCrimes();"
+                ],
+                "name": "maprender",
+                "designer|targetType": "Ext.Map",
+                "designer|controlQuery": "#CrimeTabPanel #map"
+            },
+            "designerId": "44622a3e-ee5c-43d7-85c6-21cfa4d5cc05"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getBuffer",
+                "fn": "getBuffer",
+                "designer|params": [
+                    "lat, lon"
+                ],
+                "implHandler": [
+                    "var controller = this;",
+                    "var pointValue = '{\"geometryType\":\"esriGeometryPoint\",\"geometries\":[{\"x\":' + lon + ',\"y\":' + lat + '}]}';",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: 'http://gis.phila.gov/ArcGIS/rest/services/Geometry/GeometryServer/relation',",
+                    "    params: {",
+                    "        geometries1:pointValue,",
+                    "        geometries2:'{\"geometryType\":\"esriGeometryPolygon\",\"geometries\":[{\"rings\":[[[-75.0252,40.1331],[-75.0143,40.1385],[-74.9650,40.1166],[-74.9759,40.0509],[-75.0581,39.9907],[-75.1348,39.9523],[-75.1402,39.8866],[-75.2114,39.8647],[-75.2607,39.8757],[-75.2334,39.9359],[-75.2772,39.9742],[-75.2060,40.0126],[-75.2662,40.0564],[-75.2224,40.0947],[-75.1074,40.0454]]]}]}', ",
+                    "        sr:4326,",
+                    "        relation:'esriGeometryRelationWithin',",
+                    "        f:'json'",
+                    "    },",
+                    "    success: function(response){",
+                    "        var text = response.responseText;",
+                    "        // process server response here",
+                    "        var value = Ext.JSON.decode(text);",
+                    "        if(value.relations.length > 0) {",
+                    "            console.log(\"IN CITY\");",
+                    "            loadBuffer(lon + ',' + lat);",
+                    "        }",
+                    "        else {",
+                    "            console.log(\"not IN CITY\");",
+                    "            loadBuffer('-75.163789,39.952335'); // City Hall",
+                    "        }",
+                    "    }",
+                    "});",
+                    "",
+                    "function loadBuffer(geometries) {",
+                    "    var requestParams = {};",
+                    "    requestParams.geometries = geometries;",
+                    "    requestParams.inSR = 4326;",
+                    "    requestParams.outSR = 4326;",
+                    "    requestParams.bufferSR = 102113;",
+                    "    requestParams.distances = 2825;",
+                    "    requestParams.unit = 9002;",
+                    "    requestParams.unionResults = false;",
+                    "    requestParams.f = 'pjson';",
+                    "    ",
+                    "    var today = new Date();",
+                    "    var maxDate = controller.formatDate(today);",
+                    "    var oneMonthAgo = new Date();",
+                    "    oneMonthAgo.setMonth(today.getMonth() - 1);",
+                    "    var minDate = controller.formatDate(oneMonthAgo);",
+                    "    ",
+                    "    Ext.Ajax.request({",
+                    "        url : 'http://gis.phila.gov/ArcGIS/rest/services/Geometry/GeometryServer/buffer',",
+                    "        params: requestParams,            ",
+                    "        success: function(response) { ",
+                    "            data = Ext.JSON.decode(response.responseText);",
+                    "            geometry = data.geometries[0];",
+                    "            geometry.spatialReference = { wkid : 4326 };",
+                    "            controller.fetchCrimes(Ext.JSON.encode(geometry), minDate, maxDate); ",
+                    "        },",
+                    "        error: function(jqXHR, textStatus, errorThrown) {",
+                    "            alert(errorMessage);          ",
+                    "        }",
+                    "    });",
+                    "}"
+                ]
+            },
+            "designerId": "fb2fcceb-671c-43e9-a304-4a23a388b5ac"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "isInCity",
+                "fn": "isInCity",
+                "designer|params": [
+                    "lon, lat"
+                ],
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "8c528c8a-277c-4164-874b-ccb952070ab5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "fetchCrimes",
+                "fn": "fetchCrimes",
+                "designer|params": [
+                    "bufferGeometry, minDate, maxDate"
+                ],
+                "implHandler": [
+                    "var controller = this;",
+                    "var requestParams = {};",
+                    "requestParams.where = 'DISPATCH_DATE>=\\'' + minDate + '\\' AND DISPATCH_DATE <=\\'' + maxDate + '\\' AND UCR_GENERAL >= 100 AND UCR_GENERAL <= 600';",
+                    "requestParams.geometry = bufferGeometry;",
+                    "requestParams.outFields = 'DISPATCH_DATE,DISPATCH_TIME,TEXT_GENERAL_CODE,HOUR,POINT_X,POINT_Y,UCR_GENERAL,LOCATION_BLOCK';",
+                    "requestParams.geometryType = 'esriGeometryPolygon';",
+                    "requestParams.spatialRel = 'esriSpatialRelContains';",
+                    "requestParams.inSR = 4326;",
+                    "requestParams.outSR = 4326;",
+                    "requestParams.f = 'pjson';",
+                    "",
+                    "if(this.markers) {",
+                    "    Ext.Array.each(this.markers, function(item, index, collection) {",
+                    "        item.map = null;",
+                    "    });",
+                    "}",
+                    "else {",
+                    "    this.markers = [];",
+                    "}",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url : 'http://gis.phila.gov/ArcGIS/rest/services/PhilaGov/Police_Incidents/MapServer/0/query',",
+                    "    params: requestParams,",
+                    "    success: function(response) { ",
+                    "        var data = Ext.JSON.decode(response.responseText);",
+                    "        var map = controller.getMap().getMap();",
+                    "        //var latlng = google.maps.LatLng(x,y);",
+                    "        var latlng = map.getCenter();",
+                    "        Ext.Array.each(data.features, function(item, index, collection) {",
+                    "           var lon = item.attributes.POINT_X;",
+                    "           var lat = item.attributes.POINT_Y;",
+                    "            ",
+                    "            var marker = new google.maps.Marker({",
+                    "                position: new google.maps.LatLng(lat,lon),",
+                    "                map: map",
+                    "            });",
+                    "            controller.markers.push(marker);",
+                    "        });",
+                    "    },",
+                    "    error: function(jqXHR, textStatus, errorThrown) {",
+                    "        alert(errorMessage);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "591cfe57-faf9-4149-80ef-6d11b3aad404"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "formatDate",
+                "fn": "formatDate",
+                "designer|params": [
+                    "d"
+                ],
+                "implHandler": [
+                    "var year = d.getFullYear();",
+                    "var month = d.getMonth() + 1;",
+                    "month = ('0' + month).slice(-2);",
+                    "var day = ('0' + d.getDate()).slice(-2);",
+                    "return year + '-' + month + '-' + day;"
+                ]
+            },
+            "designerId": "88bdc8cf-1898-48c0-a617-26296e439016"
+        }
+    ]
+}
